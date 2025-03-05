@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/main"
+    android:background="#393636"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.main.activities.Main_Activity"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav1"
+        android:layout_width="409dp"
+        android:layout_height="63dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="24dp"
+        android:background="@color/white"
+        app:itemIconSize="29dp"
+        app:itemIconTint="@color/bottom_nav_icon_color"
+        app:itemTextAppearanceActive="@style/ActiveText"
+        app:itemTextAppearanceInactive="@style/InactiveText"
+        app:itemTextColor="@color/black"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentcontainer"
+        android:name="com.main.fragments.ItemFragment"
+        android:layout_width="413dp"
+        android:layout_height="527dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </androidx.fragment.app.FragmentContainerView>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="417dp"
+        android:layout_height="86dp"
+        android:background="#FFFFFF"
+        android:padding="10sp"
+        android:text="BiteSpot"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentcontainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>
