@@ -1,4 +1,4 @@
-package com.main.fragments
+package com.rexdev.bitespot.fragments.placeholder
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.main.fragments.placeholder.PlaceholderContent
 import com.rexdev.bitespot.R
+import com.rexdev.bitespot.fragments.placeholder.placeholder.PlaceholderContent
 
 /**
  * A fragment representing a list of Items.
@@ -30,7 +30,7 @@ class ItemFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_item_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_item_list2, container, false)
 
         // Set the adapter
         if (view is RecyclerView) {

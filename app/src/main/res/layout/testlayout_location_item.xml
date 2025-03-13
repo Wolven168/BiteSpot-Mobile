@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="164dp">
+
+        <TextView
+            android:id="@+id/tv_locationitem_name"
+            android:layout_width="305dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Location Name"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_locationitem_display"
+            android:layout_width="95dp"
+            android:layout_height="98dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_locationitem_name"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ScrollView
+            android:id="@+id/scv_details"
+            android:layout_width="195dp"
+            android:layout_height="93dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_locationitem_view"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toEndOf="@+id/iv_locationitem_display"
+            app:layout_constraintTop_toBottomOf="@+id/tv_locationitem_name">
+
+            <TextView
+                android:id="@+id/tv_locationitem_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Details" />
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btn_locationitem_view"
+            android:layout_width="64dp"
+            android:layout_height="66dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="16dp"
+            android:text="View"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

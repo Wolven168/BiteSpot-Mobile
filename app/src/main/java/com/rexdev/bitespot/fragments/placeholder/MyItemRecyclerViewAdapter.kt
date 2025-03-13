@@ -1,13 +1,14 @@
-package com.main.fragments
+package com.rexdev.bitespot.fragments.placeholder
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.rexdev.bitespot.R
 
-import com.main.fragments.placeholder.PlaceholderContent.PlaceholderItem
-import com.rexdev.bitespot.databinding.FragmentItemBinding
-import com.rexdev.bitespot.databinding.FragmentItemBinding.*
+import com.rexdev.bitespot.fragments.placeholder.placeholder.PlaceholderContent.PlaceholderItem
+import com.rexdev.bitespot.databinding.FragmentItem2Binding
 
 /**
  * [RecyclerView.Adapter] that can display a [PlaceholderItem].
@@ -20,7 +21,7 @@ class MyItemRecyclerViewAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         return ViewHolder(
-            inflate(
+            FragmentItem2Binding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -37,7 +38,7 @@ class MyItemRecyclerViewAdapter(
 
     override fun getItemCount(): Int = values.size
 
-    inner class ViewHolder(binding: FragmentItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(binding: FragmentItem2Binding) : RecyclerView.ViewHolder(binding.root) {
         val idView: TextView = binding.itemNumber
         val contentView: TextView = binding.content
 
