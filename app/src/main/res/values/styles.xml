@@ -9,5 +9,7 @@
         <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:textSize">12sp</item>
     </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
 
 </resources>

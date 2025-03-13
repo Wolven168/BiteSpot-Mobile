@@ -1,4 +1,4 @@
-package com.main.fragments
+package com.rexdev.bitespot.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,8 @@ import com.main.recyclerViewAdapter.Location_RecyclerViewAdapter
 import com.rexdev.bitespot.R
 import com.rexdev.bitespot.functions.Location
 
-class Home_Fragment : Fragment() {
-    private lateinit var recyclerView: RecyclerView
+class Search_Fragment : Fragment() {
+    private lateinit var recyclerView : RecyclerView
     private var recyclerViewLocationAdapter: Location_RecyclerViewAdapter? = null
     private var locationList = mutableListOf<Location>()
 
@@ -20,17 +20,21 @@ class Home_Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.testlayout_location_itemlist, container, false)
+        val view = inflater.inflate(R.layout.tetslayout_search, container, false)
 
-        // Set up RecyclerView
-        recyclerView = view.findViewById(R.id.rv_location_list)
+        // Set the adapter
+        recyclerView = view.findViewById(R.id.rv_search_list)
         recyclerViewLocationAdapter = Location_RecyclerViewAdapter(locationList)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = recyclerViewLocationAdapter
 
         loadSampleSet()
 
-        return view // ✅ Return the inflated view here
+        return view
+    }
+
+    private fun loadLocationSet() {
+
     }
 
     private fun loadSampleSet() {

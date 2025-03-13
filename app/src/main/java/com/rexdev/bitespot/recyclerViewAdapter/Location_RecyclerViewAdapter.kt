@@ -29,27 +29,19 @@ class Location_RecyclerViewAdapter(
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        if(locationItems != null) {
-            return locationItems.size
-        }
-        else {
-            return 0
-        }
-    }
+    override fun getItemCount(): Int = locationItems?.size ?: 0
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val locationItem = locationItems?.get(position)
+        val locationItem = locationItems?.get(position) ?: return
 
-        if(locationItem != null) {
-            holder.name.text = locationItem.name
-            holder.details.text = locationItem.details
-            if (locationItem.image != null) {
-                Picasso.get()
-                    .load(locationItem.image)
-                    .placeholder(R.drawable.ic_launcher_background)
-                    .into(holder.image)
-            }
+        holder.name.text = locationItem.name
+        holder.details.text = locationItem.details
+        locationItem.image?.let {
+            Picasso.get()
+                .load(it)
+                .placeholder(R.drawable.ic_launcher_background)
+                .into(holder.image)
         }
     }
+
 }
