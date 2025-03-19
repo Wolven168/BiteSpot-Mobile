@@ -4,17 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.main.recyclerViewAdapter.Location_RecyclerViewAdapter
 import com.rexdev.bitespot.R
+import com.rexdev.bitespot.functions.Global
 import com.rexdev.bitespot.functions.Location
+import com.main.recyclerViewAdapter.Location_RecyclerViewAdapter
+import com.rexdev.bitespot.functions.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Home_Fragment : Fragment() {
+
     private lateinit var recyclerView: RecyclerView
     private var recyclerViewLocationAdapter: Location_RecyclerViewAdapter? = null
     private var locationList = mutableListOf<Location>()
+    private val g = Global()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,22 +36,40 @@ class Home_Fragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = recyclerViewLocationAdapter
 
-        loadSampleSet()
+        // Get device location and fetch data from API
+        g.getCurrentLocation(requireContext()) { latitude, longitude ->
+            // Check if we have valid coordinates
+            if (latitude != 0.0 && longitude != 0.0) {
+                fetchLocationsWithinRadius(latitude, longitude)
+            } else {
+                // Handle case where location is unavailable
+                Toast.makeText(requireContext(), "Failed to get location", Toast.LENGTH_SHORT).show()
+            }
+        }
 
-        return view // ✅ Return the inflated view here
+        return view // Return the inflated view here
     }
 
-    private fun loadSampleSet() {
-        val sampleItems = listOf(
-            Location("Sample Name1", "Malabago, Calasiao", 5.00, 5, "Lorem ipsum", null),
-            Location("Sample Name2", "Dagupan, Upang", 4.00, 4, "Something Something", null)
-        )
+    // Fetch locations within 1km radius from the current location
+    private fun fetchLocationsWithinRadius(latitude: Double, longitude: Double) {
+        RetrofitClient.api.getLocationsWithinRadius(latitude, longitude, 1.0) // 1km radius
+            .enqueue(object : Callback<List<Location>> {
+                override fun onResponse(call: Call<List<Location>>, response: Response<List<Location>>) {
+                    if (response.isSuccessful) {
+                        // Clear the list and add the new data
+                        locationList.clear()
+                        locationList.addAll(response.body() ?: emptyList())
+                        recyclerViewLocationAdapter?.notifyDataSetChanged()
+                    } else {
+                        // Handle error response
+                        Toast.makeText(requireContext(), "Failed to load locations", Toast.LENGTH_SHORT).show()
+                    }
+                }
 
-        // Clear the list and add sample items
-        locationList.clear()
-        locationList.addAll(sampleItems)
-
-        // Notify the adapter about data changes
-        recyclerViewLocationAdapter?.notifyDataSetChanged()
+                override fun onFailure(call: Call<List<Location>>, t: Throwable) {
+                    // Handle network or other failures
+                    Toast.makeText(requireContext(), "Network error: ${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
     }
 }
