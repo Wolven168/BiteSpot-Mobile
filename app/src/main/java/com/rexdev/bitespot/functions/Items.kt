@@ -2,7 +2,7 @@ package com.rexdev.bitespot.functions
 
 data class Location(
     val name : String,
-    val location : String,
+    val address : String?,
     val rating : Double,
     val totalRating : Int,
     val details : String?,
@@ -13,9 +13,9 @@ data class Location(
 
 data class User(
     val username : String = "Default",
-    val id : String?,
+    val id : Int?,
     val img : String?,
-    val access : String?,
+    val access : Int?,
 )
 
 data class Comment(

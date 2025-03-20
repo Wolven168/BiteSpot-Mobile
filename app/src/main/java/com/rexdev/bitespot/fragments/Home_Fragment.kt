@@ -30,6 +30,12 @@ class Home_Fragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.testlayout_location_itemlist, container, false)
 
+        setupRecyclerview(view)
+
+        return view // Return the inflated view here
+    }
+
+    private fun setupRecyclerview(view : View) {
         // Set up RecyclerView
         recyclerView = view.findViewById(R.id.rv_location_list)
         recyclerViewLocationAdapter = Location_RecyclerViewAdapter(locationList)
@@ -44,10 +50,9 @@ class Home_Fragment : Fragment() {
             } else {
                 // Handle case where location is unavailable
                 Toast.makeText(requireContext(), "Failed to get location", Toast.LENGTH_SHORT).show()
+                loadSampleSet()
             }
         }
-
-        return view // Return the inflated view here
     }
 
     // Fetch locations within 1km radius from the current location
@@ -62,14 +67,30 @@ class Home_Fragment : Fragment() {
                         recyclerViewLocationAdapter?.notifyDataSetChanged()
                     } else {
                         // Handle error response
+                        loadSampleSet()
                         Toast.makeText(requireContext(), "Failed to load locations", Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 override fun onFailure(call: Call<List<Location>>, t: Throwable) {
                     // Handle network or other failures
+                    loadSampleSet()
                     Toast.makeText(requireContext(), "Network error: ${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
+    }
+
+    private fun loadSampleSet() {
+        val sampleItems = listOf(
+            Location("Sample Name1", "Malabago, Calasiao", 5.00, 5, "Lorem ipsum", null),
+            Location("Sample Name2", "Dagupan, Upang", 4.00, 4, "Something Something", null)
+        )
+
+        // Clear the list and add sample items
+        locationList.clear()
+        locationList.addAll(sampleItems)
+
+        // Notify the adapter about data changes
+        recyclerViewLocationAdapter?.notifyDataSetChanged()
     }
 }

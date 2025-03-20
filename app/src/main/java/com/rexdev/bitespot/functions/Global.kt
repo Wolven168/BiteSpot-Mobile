@@ -15,7 +15,10 @@ import com.main.activities.Main_Activity
 class Global : Application() {
 
     // Initialize variables (you can set initial values)
-    var ID : String? = null
+    var ID : Int? = null
+    var USERNAME : String? = "Default"
+    var ACCESS : Int? = null
+    var LOGGED : Boolean = false
     var LONGITUDE : Double? = 0.00
     var LATIDUDE : Double? = 0.00
 

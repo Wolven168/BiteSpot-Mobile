@@ -12,17 +12,17 @@ import retrofit2.http.Query
 interface ApiService {
     @Headers("Content-Type: application/json")
 
-    @POST("tasters/register")
+    @POST("users/register")
     suspend fun signup(@Body registerReq: SignupReq): DefaultRes
 
-    @POST("tasters/login")
+    @POST("users/login")
     suspend fun login(@Body request: LoginReq): LoginRes
 
-    @POST("tasters/login")
+    @POST("comments")
     suspend fun comment(@Body request: Comment): DefaultRes
 
     // Endpoint to get items within a 1km radius
-    @GET("locations/withinRadius")
+    @GET("locations")
     fun getLocationsWithinRadius(
         @Query("latitude") latitude: Double,
         @Query("longitude") longitude: Double,
