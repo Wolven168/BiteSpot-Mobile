@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="#FFA500"
+    android:background="#f5efd7"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.main.activities.SplashScreen">
+    tools:context=".activities.SplashScreen">
 
     <TextView
-        android:textColor="@color/white"
+        android:textColor="#e57031"
         android:id="@+id/SpalshScreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_extrabold"
-        android:text="BITE SPOT"
+        android:text="BITESPOT"
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

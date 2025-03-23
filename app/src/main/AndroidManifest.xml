@@ -12,17 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BiteSpot"
         tools:targetApi="31">
+
         <activity
-            android:name="com.main.activities.Main_Activity"
+            android:name="com.rexdev.bitespot.activities.SplashScreen"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.BiteSpot">
+            android:theme="@style/Theme.AppCompat.Light."
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.rexdev.bitespot.activities.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"/>
+
+
     </application>
 
 </manifest>
