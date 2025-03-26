@@ -11,7 +11,7 @@ import com.main.recyclerViewAdapter.Location_RecyclerViewAdapter
 import com.rexdev.bitespot.R
 import com.rexdev.bitespot.functions.Location
 
-class Search_Fragment : Fragment() {
+class SearchFragment : Fragment() {
     private lateinit var recyclerView : RecyclerView
     private var recyclerViewLocationAdapter: Location_RecyclerViewAdapter? = null
     private var locationList = mutableListOf<Location>()
@@ -39,8 +39,8 @@ class Search_Fragment : Fragment() {
 
     private fun loadSampleSet() {
         val sampleItems = listOf(
-            Location("Sample Name1", "Malabago, Calasiao", 5.00, 5, "Lorem ipsum", null),
-            Location("Sample Name2", "Dagupan, Upang", 4.00, 4, "Something Something", null)
+            Location(1,"Sample Name1", "Malabago, Calasiao", 5.00, 5.001, 5.00, "Lorem ipsum", 5, null),
+            Location(2,"Sample Name2", "Dagupan, Upang", 1.00, 1.001,4.00, "Something Something", 4, null)
         )
 
         // Clear the list and add sample items

@@ -23,11 +23,12 @@ interface ApiService {
 
     // Endpoint to get items within a 1km radius
     @GET("locations")
-    fun getLocationsWithinRadius(
+    fun getLocations(
         @Query("latitude") latitude: Double,
         @Query("longitude") longitude: Double,
-        @Query("radius") radius: Double = 1.0 // Default radius is 1km
-    ): Call<List<Location>>
+        @Query("radius") radius: Double
+    ): Call<LocationResponse>
+
 
 //    @GET("items/indexShopItems/{id}")
 //    suspend fun getShopItems(@Path("id") s: String): Response<List<ShopItem>>

@@ -1,16 +1,16 @@
 package com.main.activities
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.fragment.app.FragmentActivity
-import com.main.fragments.Home_Fragment
 import com.rexdev.bitespot.R
-import com.rexdev.bitespot.fragments.Profile_Fragment
-import com.rexdev.bitespot.fragments.Search_Fragment
+import com.rexdev.bitespot.fragments.MainFragment
+import com.rexdev.bitespot.fragments.ProfileFragment
+import com.rexdev.bitespot.fragments.SearchFragment
 import com.rexdev.bitespot.functions.Global
 
-class Main_Activity : FragmentActivity() {
-    private val g = Global()
+class MainActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,24 +20,24 @@ class Main_Activity : FragmentActivity() {
         val btn_search = findViewById<Button>(R.id.btn_search)
         val btn_profile = findViewById<Button>(R.id.btn_profile)
 
-        // Ensure location services are enabled and prompt if necessary
-        g.checkLocationPermission(this) // Check permission first
-        g.promptForLocation(this) // Prompt to enable location services if not enabled
+        // Initialize SharedPreferences first
+        Global.init(this)
+        Log.d("GlobalDebug", "Username on startup: ${Global.USERNAME}")
+        Log.d("GlobalDebug", "ID on startup: ${Global.ID}")
+        Log.d("GlobalDebug", "Access on startup: ${Global.ACCESS}")
+        Log.d("GlobalDebug", "Logged on startup: ${Global.LOGGED}")
 
-        // Load default fragment
-        loadFragment(Home_Fragment())
-
-        // Button click listeners to switch fragments
+            // Button click listeners to switch fragments
         btn_home.setOnClickListener {
-            loadFragment(Home_Fragment())
+            loadFragment(MainFragment())
         }
 
         btn_search.setOnClickListener {
-            loadFragment(Search_Fragment())
+            loadFragment(SearchFragment())
         }
 
         btn_profile.setOnClickListener {
-            loadFragment(Profile_Fragment())
+            loadFragment(ProfileFragment())
         }
     }
 

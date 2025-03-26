@@ -1,14 +1,15 @@
 package com.rexdev.bitespot.functions
 
 data class Location(
-    val name : String,
-    val address : String?,
-    val rating : Double,
-    val totalRating : Int,
-    val details : String?,
-    val image : String?,
-    val longitude : Double? = 0.00,
-    val latitude : Double? = 0.00,
+    val id: Int,
+    val name: String,
+    val address: String?,
+    val latitude: Double?,
+    val longitude: Double?,
+    val rating: Double,
+    val details: String?,
+    val totalRating: Int,
+    val image: String?
 )
 
 data class User(
@@ -29,8 +30,7 @@ data class Comment(
 // ===== DATABASE CLASSES =====
 // REQUEST CLASSES
 data class LoginReq(
-    val username : String?,
-    val email : String?,
+    val email : String,
     val password : String,
 )
 
@@ -48,7 +48,29 @@ data class DefaultRes(
 )
 
 data class LoginRes(
-    val data : User?,
+    val user : User?,
     val message: String?,
     val success: Boolean,
 )
+
+// ===== MISC =====
+data class LocationResponse(
+    val radius: String,
+    val user_location: UserLocation,
+    val debug_data: List<DebugData>,
+    val filtered_locations: List<Location>
+)
+
+data class UserLocation(
+    val latitude: Double,
+    val longitude: Double
+)
+
+data class DebugData(
+    val location: String,
+    val lat: Double,
+    val lon: Double,
+    val calculated_distance: Double,
+    val within_radius: Boolean
+)
+

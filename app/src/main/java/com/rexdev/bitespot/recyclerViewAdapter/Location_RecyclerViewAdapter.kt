@@ -36,12 +36,19 @@ class Location_RecyclerViewAdapter(
 
         holder.name.text = locationItem.name
         holder.details.text = locationItem.details
-        locationItem.image?.let {
+
+        val imageUrl = locationItem.image
+
+        if (!imageUrl.isNullOrEmpty()) {
             Picasso.get()
-                .load(it)
-                .placeholder(R.drawable.ic_launcher_background)
+                .load(imageUrl)
+                .placeholder(R.drawable.ic_launcher_background) // Show a placeholder while loading
+                .error(R.drawable.baseline_home_24) // Show error image if the URL is invalid
                 .into(holder.image)
+        } else {
+            holder.image.setImageResource(R.drawable.ic_launcher_background) // Set a default image for null/empty URLs
         }
     }
+
 
 }

@@ -27,7 +27,7 @@ class SplashScreen : AppCompatActivity() {
 
         // Delay for 2 seconds, then navigate to Phase1
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@SplashScreen, Main_Activity :: class.java) // Replace with your actual MainActivity
+            val intent = Intent(this@SplashScreen, MainActivity :: class.java) // Replace with your actual MainActivity
             startActivity(intent)
             finish() // Close SplashScreen to prevent returning to it
         }, 3000) // 2 seconds delay
