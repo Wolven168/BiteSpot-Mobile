@@ -20,10 +20,9 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.tetslayout_search, container, false)
+
 
         // Set the adapter
-        recyclerView = view.findViewById(R.id.rv_search_list)
         recyclerViewLocationAdapter = Location_RecyclerViewAdapter(locationList)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = recyclerViewLocationAdapter

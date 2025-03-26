@@ -5,11 +5,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.rexdev.bitespot.R
+import com.rexdev.bitespot.activities.SplashScreen2
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreen : AppCompatActivity() {
@@ -25,11 +29,21 @@ class SplashScreen : AppCompatActivity() {
             insets
         }
 
-        // Delay for 2 seconds, then navigate to Phase1
+        // Load the fade-in animation
+        val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+
+        // Apply the animation to the ImageView and TextView
+        val splashImageView = findViewById<ImageView>(R.id.splash)
+        val bitespotTextView = findViewById<TextView>(R.id.bitespot_text)
+
+        splashImageView.startAnimation(fadeInAnimation)
+        bitespotTextView.startAnimation(fadeInAnimation)
+
+        // Delay for 2 seconds, then navigate to MainActivity
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@SplashScreen, MainActivity :: class.java) // Replace with your actual MainActivity
+            val intent = Intent(this@SplashScreen, SplashScreen2::class.java)
             startActivity(intent)
             finish() // Close SplashScreen to prevent returning to it
-        }, 3000) // 2 seconds delay
+        }, 3000) // 3 seconds delay
     }
 }

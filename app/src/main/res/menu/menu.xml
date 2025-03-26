@@ -9,7 +9,7 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/navigation_activity"
+        android:id="@+id/navigation_list"
         android:title="Search"
         android:icon="@drawable/baseline_search_24"
         app:showAsAction="ifRoom" />

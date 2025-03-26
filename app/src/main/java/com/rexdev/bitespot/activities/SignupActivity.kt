@@ -18,7 +18,7 @@ class SignupActivity : AppCompatActivity(){
     private lateinit var et_username : EditText
     private lateinit var et_email : EditText
     private lateinit var et_password : EditText
-    private lateinit var tv_tologin : TextView
+    private lateinit var tv_tologin : Button
     private lateinit var btn_signup : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class SignupActivity : AppCompatActivity(){
         et_username = findViewById(R.id.et_username_signup)
         et_email = findViewById(R.id.et_email_signup)
         et_password = findViewById(R.id.et_password_signup)
-        tv_tologin = findViewById(R.id.tv_switchtologin)
+        tv_tologin = findViewById(R.id.btn_login)
         btn_signup = findViewById(R.id.btn_signup)
         btn_signup.setOnClickListener{
             signup(et_username.text.toString(), et_email.text.toString(), et_password.text.toString())

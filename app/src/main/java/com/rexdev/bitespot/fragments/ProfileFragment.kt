@@ -34,7 +34,7 @@ class ProfileFragment : Fragment() {
         btn_logout = view.findViewById(R.id.btn_logout)
         tv_username = view.findViewById(R.id.tv_username)
         tv_location = view.findViewById(R.id.tv_location)
-        btn_debug = view.findViewById(R.id.btn_debug_profile)
+
         sw_currentlocation = view.findViewById(R.id.sw_currentlocation)
 
         val username = "Username: " + Global.USERNAME
