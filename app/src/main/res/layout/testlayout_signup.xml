@@ -4,90 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20sp"
-    android:paddingStart="20sp"
-    android:paddingLeft="20sp"
-    android:paddingTop="20sp"
-    android:paddingEnd="20sp"
-    android:paddingRight="20sp"
-    android:paddingBottom="20sp"
+    android:padding="20dp"
     tools:visibility="visible">
 
     <TextView
-        android:layout_width="138dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="56dp"
-        android:gravity="center"
-        android:text="Signup Screen"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/poppins_extrabold"
+        android:text="SIGNUP"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="256dp"
-        android:layout_marginTop="148dp"
-        android:gravity="center"
-        android:orientation="vertical"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/img" />
 
-        <com.google.android.material.textfield.TextInputLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="369dp"
+        android:layout_height="344dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/light_orange"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView2">
+
+        <EditText
+            android:id="@+id/et_username_signup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="50dp"
+            android:background="@drawable/text_box"
+            android:hint="Enter Username"
+            android:inputType="text"
+            android:padding="10dp"
+            tools:ignore="MissingConstraints" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_username_signup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Username" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/et_email_signup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Email">
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/text_box"
+            android:hint="Enter Email"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            app:layout_constraintTop_toBottomOf="@id/et_username_signup" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_email_signup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Email"
-                android:inputType="text|textEmailAddress|textAutoComplete" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/et_password_signup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Password">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_password_signup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Password"
-                android:inputType="text|textPassword|textNoSuggestions" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/text_box"
+            android:hint="Enter Password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            app:layout_constraintTop_toBottomOf="@id/et_email_signup" />
 
         <Button
             android:id="@+id/btn_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Signup" />
+            android:layout_marginTop="32dp"
+            android:background="@drawable/white"
+            android:text="Signup"
+            app:layout_constraintTop_toBottomOf="@id/et_password_signup" />
 
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_switchtologin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="20dp"
-        android:text="Go to login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="88dp"
+            android:background="@drawable/white"
+            android:text="LOGIN"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_password_signup" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
