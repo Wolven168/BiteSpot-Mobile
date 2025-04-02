@@ -15,17 +15,14 @@ class Location_RecyclerViewAdapter(
 ) : RecyclerView.Adapter<Location_RecyclerViewAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name: TextView =
-            itemView.findViewById(R.id.tv_locationitem_name) // Change to your image view ID
-        val image: ImageView =
-            itemView.findViewById(R.id.iv_locationitem_display) // Change to your name TextView ID
-        val details: TextView =
-            itemView.findViewById(R.id.tv_locationitem_details) // Change to your price TextView ID
+        val name: TextView = itemView.findViewById(R.id.tv_locationitem_name)
+        val image: ImageView = itemView.findViewById(R.id.iv_locationitem_display)
+        val details: TextView = itemView.findViewById(R.id.tv_locationitem_details)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.testlayout_location_item, parent, false) // Change to your item layout
+            .inflate(R.layout.testlayout_location_item, parent, false) // Use location_item.xml
         return ViewHolder(view)
     }
 
@@ -42,13 +39,13 @@ class Location_RecyclerViewAdapter(
         if (!imageUrl.isNullOrEmpty()) {
             Picasso.get()
                 .load(imageUrl)
-                .placeholder(R.drawable.ic_launcher_background) // Show a placeholder while loading
-                .error(R.drawable.baseline_home_24) // Show error image if the URL is invalid
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.baseline_home_24)
+                .fit() // Fit the image to the ImageView dimensions
+                .centerCrop() // Center and crop the image
                 .into(holder.image)
         } else {
-            holder.image.setImageResource(R.drawable.ic_launcher_background) // Set a default image for null/empty URLs
+            holder.image.setImageResource(R.drawable.ic_launcher_background)
         }
     }
-
-
 }

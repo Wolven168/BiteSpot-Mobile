@@ -1,122 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:ignore="ExtraText">
-    >
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/tv_username_debug"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:text="Username"
-        android:textSize="34sp" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_username_debug"
+        <TextView
+            android:id="@+id/tv_username_debug"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:gravity="center_horizontal"
+            android:text="Username"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
 
-    <Button
-        android:id="@+id/btn_submitusername_debug"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Chenge Username" />
-
-    <TextView
-        android:id="@+id/tv_longitude_debug"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:text="Longitude"
-        android:textSize="34sp" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_longitutde_debug"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Longitude" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:hint="Username"
+            android:layout_marginBottom="16dp">
 
-    <TextView
-        android:id="@+id/tv_latitude_debug"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:text="Latitude"
-        android:textSize="34sp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_username_debug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_latitude_debug"
+        <Button
+            android:id="@+id/btn_submitusername_debug"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Latitude" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Change Username"
+            android:layout_marginBottom="24dp"/>
 
-    <Button
-        android:id="@+id/btn_submitlocation_debug"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Change location" />
-
-    <TextView
-        android:id="@+id/tv_ip_debug"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:text="IP"
-        android:textSize="34sp" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_ip_debug"
+        <TextView
+            android:id="@+id/tv_longitude_debug"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ip" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:gravity="center_horizontal"
+            android:text="Longitude"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
 
-    <Button
-        android:id="@+id/btn_submitip_debug"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Change IP" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Longitude"
+            android:layout_marginBottom="16dp">
 
-    <Button
-        android:id="@+id/btn_back_debug"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Back to main" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_longitutde_debug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_latitude_debug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Latitude"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Latitude"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_latitude_debug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_submitlocation_debug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change Location"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:id="@+id/tv_ip_debug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="IP"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="IP"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_ip_debug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_submitip_debug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change IP"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btn_back_debug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back to Main" />
+
+    </LinearLayout>
+
+</ScrollView>
