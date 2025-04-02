@@ -9,7 +9,8 @@ data class Location(
     val rating: Double,
     val details: String?,
     val totalRating: Int,
-    val image: String?
+    val image: String?,
+    val link: String?,
 )
 
 data class User(
@@ -20,11 +21,12 @@ data class User(
 )
 
 data class Comment(
+    val id : Int,
     val username : String,
     val locImg : String?,
     val proImg : String?,
-    val text : String,
-    val rating : Int?
+    val text : String?,
+    val rating : Int
 )
 
 // ===== DATABASE CLASSES =====

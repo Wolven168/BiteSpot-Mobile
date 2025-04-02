@@ -38,8 +38,8 @@ class SearchFragment : Fragment() {
 
     private fun loadSampleSet() {
         val sampleItems = listOf(
-            Location(1,"Sample Name1", "Malabago, Calasiao", 5.00, 5.001, 5.00, "Lorem ipsum", 5, null),
-            Location(2,"Sample Name2", "Dagupan, Upang", 1.00, 1.001,4.00, "Something Something", 4, null)
+            Location(1,"Sample Name1", "Malabago, Calasiao", 5.00, 5.001, 5.00, "Lorem ipsum", 5, null, ""),
+            Location(2,"Sample Name2", "Dagupan, Upang", 1.00, 1.001,4.00, "Something Something", 4, null, "")
         )
 
         // Clear the list and add sample items
