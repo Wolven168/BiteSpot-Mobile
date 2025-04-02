@@ -1,5 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Base.Theme.BiteSpot" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#FF9800</item>
+        <item name="colorSecondary">#FFC107</item>
+        <item name="android:statusBarColor">#FF7043</item> </style>
 
-    <style name="Theme.BiteSpot" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.BiteSpot" parent="Base.Theme.BiteSpot" />
+
+    <color name="orange">#FF9800</color>
+    <color name="amber">#FFC107</color>
+    <color name="darker_orange">#FF7043</color>
+
+    <style name="LoginButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/loginbtn</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="SignupButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/signupbtn</item>
+        <item name="android:textColor">#EC6408</item>
+    </style>
+
 </resources>
