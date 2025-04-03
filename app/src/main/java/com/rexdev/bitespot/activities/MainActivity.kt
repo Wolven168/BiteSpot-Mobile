@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.fragment.app.FragmentActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.rexdev.bitespot.R
 import com.rexdev.bitespot.fragments.MainFragment
 import com.rexdev.bitespot.fragments.ProfileFragment
@@ -24,24 +25,25 @@ class MainActivity : AppCompatActivity() {
         Log.d("GlobalDebug", "Access on startup: ${Global.ACCESS}")
         Log.d("GlobalDebug", "Logged on startup: ${Global.LOGGED}")
 
-    }
-
-    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.navigation_home -> {
-                loadFragment(MainFragment())
-                return true
-            }
-            R.id.navigation_search -> {
-                loadFragment(SearchFragment())
-                return true
-            }
-            R.id.navigation_list -> {
-                loadFragment(ProfileFragment())
-                return true
+        val bottomNav: BottomNavigationView = findViewById(R.id.bottom_nav1)
+        bottomNav.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    loadFragment(MainFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.navigation_search -> {
+                    loadFragment(SearchFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.navigation_list -> {
+                    loadFragment(ProfileFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+                else -> false
             }
         }
-        return super.onOptionsItemSelected(item)
+
     }
 
     private fun loadFragment(fragment: androidx.fragment.app.Fragment) {

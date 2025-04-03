@@ -19,8 +19,8 @@ import kotlinx.coroutines.launch
 class LoginActivity : AppCompatActivity() {
     private lateinit var et_email : EditText
     private lateinit var et_password : EditText
-//    private lateinit var tv_totisnup : TextView
-    private lateinit var btn_login : Button
+    private lateinit var tv_totisnup : Button
+    private lateinit var btn_login : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
         // Setting up the IDs
         et_email = findViewById(R.id.et_email_login)
         et_password = findViewById(R.id.et_password_login)
-//        tv_totisnup = findViewById(R.id.tv_gotosignup)
+        tv_totisnup = findViewById(R.id.signup_text)
         btn_login = findViewById(R.id.btn_login)
 
         btn_login.setOnClickListener{
@@ -40,11 +40,11 @@ class LoginActivity : AppCompatActivity() {
             finish()  // Finish the parent activity to prevent returning
         }
 
-//        tv_totisnup.setOnClickListener {
-//            val intent = Intent(this, SignupActivity::class.java)  // Switch context using requireContext()
-//            startActivity(intent)
-//            finish()  // Finish the parent activity to prevent returning
-//        }
+        tv_totisnup.setOnClickListener {
+            val intent = Intent(this, SignupActivity::class.java)  // Switch context using requireContext()
+            startActivity(intent)
+            finish()  // Finish the parent activity to prevent returning
+        }
     }
 
     private fun login(email : String, password : String) {

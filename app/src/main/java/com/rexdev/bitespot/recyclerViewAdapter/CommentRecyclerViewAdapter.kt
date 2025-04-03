@@ -1,42 +1,47 @@
-package com.main.recyclerViewAdapter
+package com.rexdev.bitespot.recyclerViewAdapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.main.recyclerViewAdapter.Location_RecyclerViewAdapter
 import com.rexdev.bitespot.R
+import com.rexdev.bitespot.functions.Comment
 import com.rexdev.bitespot.functions.Location
 import com.squareup.picasso.Picasso
 
-class Location_RecyclerViewAdapter(
-    private val locationItems: List<Location>?
-) : RecyclerView.Adapter<Location_RecyclerViewAdapter.ViewHolder>() {
+class CommentRecyclerViewAdapter (
+    private val commentItems: List<Comment>?
+) : RecyclerView.Adapter<CommentRecyclerViewAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name: TextView = itemView.findViewById(R.id.tv_locationitem_name)
-        val image: ImageView = itemView.findViewById(R.id.iv_locationitem_display)
-        val details: TextView = itemView.findViewById(R.id.tv_locationitem_details)
-        val btn_view: Button = itemView.findViewById(R.id.btn_locationitem_view)
+        val username: TextView = itemView.findViewById(R.id.tv_username_comment)
+        val locname: TextView = itemView.findViewById(R.id.tv_location_comment)
+        val image: ImageView = itemView.findViewById(R.id.iv_image_comment)
+        val details: TextView = itemView.findViewById(R.id.tv_text_comment)
+        val rating: RatingBar = itemView.findViewById(R.id.rb_rating_comment)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.testlayout_location_item, parent, false) // Use location_item.xml
+            .inflate(R.layout.location_rvitem, parent, false) // Use location_item.xml
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int = locationItems?.size ?: 0
+    override fun getItemCount(): Int = commentItems?.size ?: 0
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val locationItem = locationItems?.get(position) ?: return
+        val commentItem = commentItems?.get(position) ?: return
 
-        holder.name.text = locationItem.name
-        holder.details.text = locationItem.description
+        holder.username.text = commentItem.username
+        holder.details.text = commentItem.text
 
-        val imageUrl = locationItem.image
+
+        val imageUrl = commentItem.locImg
 
         if (!imageUrl.isNullOrEmpty()) {
             Picasso.get()
@@ -50,8 +55,6 @@ class Location_RecyclerViewAdapter(
             holder.image.setImageResource(R.drawable.ic_launcher_background)
         }
 
-        holder.btn_view.setOnClickListener {
-
-        }
+        holder.rating.rating = commentItem.rating.toFloat()
     }
 }

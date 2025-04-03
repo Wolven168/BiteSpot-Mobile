@@ -3,6 +3,7 @@ package com.rexdev.bitespot.activities
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +19,7 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var et_email: TextInputLayout
     private lateinit var et_password: TextInputLayout
     private lateinit var et_repassword: TextInputLayout
-//    private lateinit var tv_tologin: TextView
+    private lateinit var tv_tologin: TextView
     private lateinit var btn_signup: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +32,7 @@ class SignupActivity : AppCompatActivity() {
         et_email = findViewById(R.id.et_email_signup)
         et_password = findViewById(R.id.et_password_signup)
         et_repassword = findViewById(R.id.et_repassword_signup)
-//        tv_tologin = findViewById(R.id.btn_login)
+        tv_tologin = findViewById(R.id.btn_login)
         btn_signup = findViewById(R.id.btn_signup)
 
         btn_signup.setOnClickListener {
@@ -43,11 +44,11 @@ class SignupActivity : AppCompatActivity() {
             )
         }
 
-//        tv_tologin.setOnClickListener {
-//            val intent = Intent(this, LoginActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        tv_tologin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun signup(username: String, email: String, password: String, repassword: String) {

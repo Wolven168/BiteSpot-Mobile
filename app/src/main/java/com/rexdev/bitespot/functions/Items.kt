@@ -7,10 +7,11 @@ data class Location(
     val latitude: Double?,
     val longitude: Double?,
     val rating: Double,
-    val details: String?,
+    val description: String?,
     val totalRating: Int,
     val image: String?,
-    val link: String?,
+    val linkAddress: String?,
+    val actual_rating: Int
 )
 
 data class User(
@@ -54,6 +55,7 @@ data class LoginRes(
     val message: String?,
     val success: Boolean,
 )
+
 
 // ===== MISC =====
 data class LocationResponse(

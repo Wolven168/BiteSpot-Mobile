@@ -20,7 +20,7 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        val view = inflater.inflate(R.layout.testlayout_search, container, false)
 
         // Set the adapter
         recyclerViewLocationAdapter = Location_RecyclerViewAdapter(locationList)
@@ -38,8 +38,8 @@ class SearchFragment : Fragment() {
 
     private fun loadSampleSet() {
         val sampleItems = listOf(
-            Location(1,"Sample Name1", "Malabago, Calasiao", 5.00, 5.001, 5.00, "Lorem ipsum", 5, null, ""),
-            Location(2,"Sample Name2", "Dagupan, Upang", 1.00, 1.001,4.00, "Something Something", 4, null, "")
+            Location(1,"Sample Name1", "Malabago, Calasiao", 5.00, 5.001, 5.00, "Lorem ipsum", 5, null, "", 5),
+            Location(2,"Sample Name2", "Dagupan, Upang", 1.00, 1.001,4.00, "Something Something", 4, null, "", 4)
         )
 
         // Clear the list and add sample items

@@ -31,6 +31,8 @@ class MainFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.testlayout_location_itemlist, container, false)
 
+        getUserLocation()
+
         setupRecyclerview(view)
 
         return view
@@ -90,11 +92,25 @@ class MainFragment : Fragment() {
             })
     }
 
+    private fun getUserLocation() {
+        Global.getCurrentLocation(requireContext()) { latitude, longitude ->
+            if (latitude != 0.0 && longitude != 0.0) {
+                // Store the user's current location in Global
+                Global.LATITUDE = latitude
+                Global.LONGITUDE = longitude
+                Log.d("DEBUG", "Location stored: Latitude = $latitude, Longitude = $longitude")
+            } else {
+                Log.e("ERROR", "Unable to get the current location")
+                Toast.makeText(requireContext(), "Unable to fetch current location", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 
     private fun loadSampleSet() {
         val sampleItems = listOf(
-            Location(1,"Sample Name1", "Malabago, Calasiao", 5.00, 5.001, 5.00, "Lorem ipsum", 5, null, ""),
-            Location(2,"Sample Name2", "Dagupan, Upang", 1.00, 1.001,4.00, "Something Something", 4, null, "")
+            Location(1,"Sample Name1", "Malabago, Calasiao", 5.00, 5.001, 5.00, "Lorem ipsum", 5, null, "", 0),
+            Location(2,"Sample Name2", "Dagupan, Upang", 1.00, 1.001,4.00, "Something Something", 4, null, "", 0)
         )
 
         locationList.clear()

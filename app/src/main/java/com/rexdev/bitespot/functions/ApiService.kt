@@ -3,6 +3,7 @@ package com.rexdev.bitespot.functions
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
@@ -18,8 +19,17 @@ interface ApiService {
     @POST("users/login")
     suspend fun login(@Body request: LoginReq): LoginRes
 
-    @POST("comments")
+    @POST("comment")
     suspend fun comment(@Body request: Comment): DefaultRes
+
+    @GET("comment/location/{id}")
+    suspend fun getComments(@Path("id") id: String): List<Comment>
+
+    @DELETE("comment/{id}")
+    suspend fun deleteComments(@Path("id") id: String): DefaultRes
+
+    @GET("location/{id}")
+    suspend fun getLocation(@Path("id") id: String): Location
 
     // Endpoint to get items within a 1km radius
     @GET("locations")

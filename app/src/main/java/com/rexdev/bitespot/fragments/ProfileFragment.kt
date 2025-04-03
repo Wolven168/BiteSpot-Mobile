@@ -10,7 +10,6 @@ import android.widget.ImageView
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.BinderThread
 import androidx.fragment.app.Fragment
 import com.rexdev.bitespot.R
 import com.rexdev.bitespot.activities.DebugActivity
@@ -32,8 +31,8 @@ class ProfileFragment : Fragment() {
         val view = inflater.inflate(R.layout.testlayout_profile, container, false)
 
         btn_logout = view.findViewById(R.id.btn_logout)
-        tv_username = view.findViewById(R.id.tv_username)
-        tv_location = view.findViewById(R.id.tv_location)
+        tv_username = view.findViewById(R.id.tv_username_comment)
+        tv_location = view.findViewById(R.id.tv_location_comment)
 
         sw_currentlocation = view.findViewById(R.id.sw_currentlocation)
 
