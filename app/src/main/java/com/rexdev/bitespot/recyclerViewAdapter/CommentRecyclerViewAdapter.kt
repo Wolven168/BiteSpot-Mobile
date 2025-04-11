@@ -40,7 +40,6 @@ class CommentRecyclerViewAdapter (
         holder.username.text = commentItem.username
         holder.details.text = commentItem.text
 
-
         val imageUrl = commentItem.locImg
 
         if (!imageUrl.isNullOrEmpty()) {
@@ -55,6 +54,11 @@ class CommentRecyclerViewAdapter (
             holder.image.setImageResource(R.drawable.ic_launcher_background)
         }
 
-        holder.rating.rating = commentItem.rating.toFloat()
+        holder.rating.rating = getRating(commentItem.rating)
+    }
+
+    private fun getRating(rating : Int) : Float {
+         val totRating = rating.toDouble()
+        return totRating.toFloat()
     }
 }

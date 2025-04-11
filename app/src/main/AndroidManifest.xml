@@ -21,23 +21,27 @@
         <activity
             android:name=".activities.SplashScreen2"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name="com.main.activities.MainActivity"
             android:exported="true"
-            android:label="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:label="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".activities.SignupActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".activities.DebugActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".activities.LocationActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name="com.main.activities.SplashScreen"
             android:exported="true"

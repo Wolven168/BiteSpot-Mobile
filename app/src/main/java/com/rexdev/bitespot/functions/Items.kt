@@ -50,6 +50,12 @@ data class DefaultRes(
     val success :Boolean,
 )
 
+data class LocationRes(
+    val message: String?,
+    val data: Location?,
+    val success: Boolean
+)
+
 data class LoginRes(
     val user : User?,
     val message: String?,
@@ -57,17 +63,34 @@ data class LoginRes(
 )
 
 
+data class LocDataRes(
+    val success: Boolean,
+    val data: List<Location>,
+    val message: String?
+)
+
+data class CommentReq(
+    val loc_id : Int,
+    val user_id : Int?,
+    val text: String?,
+    val rating: Int
+)
+
 // ===== MISC =====
 data class LocationResponse(
-    val radius: String,
-    val user_location: UserLocation,
-    val debug_data: List<DebugData>,
-    val filtered_locations: List<Location>
+    val success: Boolean,
+    val data: LocationData
+)
+
+data class LocationData(
+    val radius: String?,
+    val user_location: UserLocation?,
+    val filtered_locations: List<Location>?
 )
 
 data class UserLocation(
-    val latitude: Double,
-    val longitude: Double
+    val latitude: String?,
+    val longitude: String?
 )
 
 data class DebugData(

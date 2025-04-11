@@ -2,9 +2,12 @@ package com.main.activities
 
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.enableEdgeToEdge
 import androidx.fragment.app.FragmentActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.replace
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.rexdev.bitespot.R
 import com.rexdev.bitespot.fragments.MainFragment
@@ -25,31 +28,37 @@ class MainActivity : AppCompatActivity() {
         Log.d("GlobalDebug", "Access on startup: ${Global.ACCESS}")
         Log.d("GlobalDebug", "Logged on startup: ${Global.LOGGED}")
 
+        val mainFragment = MainFragment()
+        val searchFragment = SearchFragment()
+        val profileFragment = ProfileFragment()
+
+        loadFragment(mainFragment)
+
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_nav1)
-        bottomNav.setOnNavigationItemSelectedListener { item ->
+        bottomNav.setOnNavigationItemReselectedListener {  item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
-                    loadFragment(MainFragment())
-                    return@setOnNavigationItemSelectedListener true
+                    Log.d("FragmentDebug", "MainFragment is selected")
+                    loadFragment(mainFragment)
                 }
                 R.id.navigation_search -> {
-                    loadFragment(SearchFragment())
-                    return@setOnNavigationItemSelectedListener true
+                    Log.d("FragmentDebug", "SearchFragment is selected")
+                    loadFragment(searchFragment)
                 }
                 R.id.navigation_list -> {
-                    loadFragment(ProfileFragment())
-                    return@setOnNavigationItemSelectedListener true
+                    Log.d("FragmentDebug", "ProfileFragment is selected")
+                    loadFragment(profileFragment)
                 }
-                else -> false
             }
+            true
         }
 
     }
 
-    private fun loadFragment(fragment: androidx.fragment.app.Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, fragment)
-        transaction.addToBackStack(null) // Optional if you want to navigate back
-        transaction.commit()
-    }
+    private fun loadFragment(fragment: Fragment) =
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(null)
+            commit()
+        }
 }

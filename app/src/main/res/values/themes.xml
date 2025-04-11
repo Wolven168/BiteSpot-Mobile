@@ -2,7 +2,8 @@
     <style name="Base.Theme.BiteSpot" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">#FF9800</item>
         <item name="colorSecondary">#FFC107</item>
-        <item name="android:statusBarColor">#FF7043</item> </style>
+        <item name="android:statusBarColor">#FF7043</item>
+    </style>
 
     <style name="Theme.BiteSpot" parent="Base.Theme.BiteSpot" />
 
@@ -16,10 +17,10 @@
         <item name="android:textColor">#EC6408</item>
     </style>
 
-    <style name="Theme.Material.Light.NoActionBar." parent="android:Theme.Material.Light.NoActionBar">
+    <style name="Theme.Material.Light.NoActionBar." parent="Theme.AppCompat.Light.">
 
     </style>
-    <style name="Theme.Material.Light" parent="android:ThemeOverlay.Material.Light">
+    <style name="Theme.Material.Light" parent="Theme.AppCompat.Light.">
 
     </style>
     <style name="Theme.Material.Dark" parent="android:ThemeOverlay.Material.Dark">

@@ -22,7 +22,6 @@ class ProfileFragment : Fragment() {
     lateinit var tv_location: TextView
     lateinit var iv_image: ImageView
     lateinit var sw_currentlocation: Switch
-    lateinit var btn_debug: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,14 +31,10 @@ class ProfileFragment : Fragment() {
 
         btn_logout = view.findViewById(R.id.btn_logout)
         tv_username = view.findViewById(R.id.tv_username_comment)
-        tv_location = view.findViewById(R.id.tv_location_comment)
-
-        sw_currentlocation = view.findViewById(R.id.sw_currentlocation)
 
         val username = "Username: " + Global.USERNAME
         val location = "Coordinates: " + Global.LONGITUDE + "," + Global.LATITUDE
         tv_username.text = username
-        tv_location.text = location
 
         if (Global.LOGGED == false) {
             btn_logout.text = "Sign Up/In"
@@ -53,16 +48,15 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        btn_debug.setOnClickListener { debug() }
-
         // Switch to enable/disable GPS location updates
-        sw_currentlocation.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                enableLocationTracking()
-            } else {
-                disableLocationTracking()
-            }
-        }
+//        sw_currentlocation.setOnCheckedChangeListener { _, isChecked ->
+//            if (isChecked) {
+//                Global.promptForLocation(requireContext())
+//                enableLocationTracking()
+//            } else {
+//                disableLocationTracking()
+//            }
+//        }
 
         return view
     }

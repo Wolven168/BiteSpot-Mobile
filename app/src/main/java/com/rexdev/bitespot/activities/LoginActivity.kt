@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 class LoginActivity : AppCompatActivity() {
     private lateinit var et_email : EditText
     private lateinit var et_password : EditText
-    private lateinit var tv_totisnup : Button
+    private lateinit var tv_totisnup : TextView
     private lateinit var btn_login : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +35,6 @@ class LoginActivity : AppCompatActivity() {
 
         btn_login.setOnClickListener{
             login(et_email.text.toString(), et_password.text.toString())
-            val intent = Intent(this, MainActivity::class.java)  // Switch context using requireContext()
-            startActivity(intent)
-            finish()  // Finish the parent activity to prevent returning
         }
 
         tv_totisnup.setOnClickListener {
@@ -49,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun login(email : String, password : String) {
         val loginReq = LoginReq(email = email, password = password)
+        val intent = Intent(this, MainActivity::class.java)  // Switch context using requireContext()
 
         lifecycleScope.launch {
             try {
@@ -61,6 +59,8 @@ class LoginActivity : AppCompatActivity() {
                     Global.ID = response.user?.id
                     Global.ACCESS = response.user?.access
                     Toast.makeText(this@LoginActivity, "Login successful!", Toast.LENGTH_SHORT).show()
+                    startActivity(intent)
+                    finish()  // Finish the parent activity to prevent returning
                 } else {
                     Log.e("LoginDebug", "Login failed: ${response}")
                     Toast.makeText(this@LoginActivity, "Invalid credentials", Toast.LENGTH_SHORT).show()

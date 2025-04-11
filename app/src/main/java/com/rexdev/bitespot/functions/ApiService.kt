@@ -20,7 +20,7 @@ interface ApiService {
     suspend fun login(@Body request: LoginReq): LoginRes
 
     @POST("comment")
-    suspend fun comment(@Body request: Comment): DefaultRes
+    suspend fun comment(@Body request: CommentReq): DefaultRes
 
     @GET("comment/location/{id}")
     suspend fun getComments(@Path("id") id: String): List<Comment>
@@ -28,8 +28,8 @@ interface ApiService {
     @DELETE("comment/{id}")
     suspend fun deleteComments(@Path("id") id: String): DefaultRes
 
-    @GET("location/{id}")
-    suspend fun getLocation(@Path("id") id: String): Location
+    @GET("locations/{id}")
+    suspend fun getLocation(@Path("id") id: String): LocationRes
 
     // Endpoint to get items within a 1km radius
     @GET("locations")
@@ -38,6 +38,9 @@ interface ApiService {
         @Query("longitude") longitude: Double,
         @Query("radius") radius: Double
     ): Call<LocationResponse>
+
+    @GET("locations/search")
+    suspend fun searchLocations(@Query("search") search: String): LocDataRes
 
 
 //    @GET("items/indexShopItems/{id}")

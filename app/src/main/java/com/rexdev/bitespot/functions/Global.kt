@@ -58,7 +58,7 @@ object Global {
         }
 
     var AREA_RANGE: Double
-        get() = sharedPreferences?.getFloat("AREA_RANGE", 1.00f)?.toDouble() ?: 1.00
+        get() = sharedPreferences?.getFloat("AREA_RANGE", 10.00f)?.toDouble() ?: 10.00 // Minimum of 5
         set(value) {
             sharedPreferences?.edit()?.putFloat("AREA_RANGE", value.toFloat())?.apply()
         }
