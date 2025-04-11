@@ -4,19 +4,19 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:title="Home"
+        android:title="@string/home"
         android:icon="@drawable/baseline_home_24"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/navigation_activity"
-        android:title="Search"
+        android:id="@+id/navigation_search"
+        android:title="@string/search"
         android:icon="@drawable/baseline_search_24"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/navigation_search"
-        android:title="List"
+        android:id="@+id/navigation_list"
+        android:title="@string/profile"
         android:icon="@drawable/baseline_list_24"
         app:showAsAction="ifRoom" />
 
